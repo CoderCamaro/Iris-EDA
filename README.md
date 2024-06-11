@@ -1,4 +1,4 @@
-# Iris-EDA
+# Exploring the Iris dataset in depth
 Exploring the Iris dataset.
 
 ![](pairplot.png)
