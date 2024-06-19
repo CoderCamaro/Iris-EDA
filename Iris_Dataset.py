@@ -1,4 +1,4 @@
-"""EDA (Exploratory Data Analyis) using the Iris dataset found on the sklearn toy datasets."""
+"""EDA (Exploratory Data Analyis) using the Iris flower dataset found on the sklearn toy datasets."""
 
 from sklearn.datasets import load_iris 
 import numpy as np
@@ -36,6 +36,7 @@ plt.legend()
 
 plt.figure()
 
+# Creating a scatter plot based on sepal length and sepal width.
 plt.scatter(X[:,0],X[:,1],c=y)
 plt.xlabel("Sepal length (cm)")
 plt.ylabel("Sepal width (cm)")
@@ -44,14 +45,17 @@ plt.grid()
 
 plt.figure()
 
+# Creating a scatter plot based on petal length and petal width.
 plt.scatter(X[:,2],X[:,3],c=y)
 plt.xlabel("Petal length (cm)")
 plt.ylabel("Petal width (cm)")
 plt.title("Flower types based on petal length and petal width")
 plt.grid()
 
-df = pd.DataFrame(X,columns = ["Sepal length(cm)", "Speal width(cm)", "Petal length(cm)", "Petal width(cm)"])
+# Creating a Seaborn pairplot in which flower features are contrasted with other flower features.
+df = pd.DataFrame(X,columns = ["Sepal length(cm)", "Speal width(cm)", "Petal length(cm)", "Petal width(cm)"]) # Creating a DataFrame to make into a Seaborn pairplot.
+df["Iris Type"] = y # Adding the target to the plot.
 
 plt.figure()
 
-sns.pairplot(df,corner=True)
+sns.pairplot(df,corner=True,hue="Iris Type")
